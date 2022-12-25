@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Welcome to my website</title>
+    <!-- include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Itinerary Planner</h1>
+    <p>Use this form to generate a personalized itinerary for your trip.</p>
+    <form action="" method="post" class="container mt-5">
+      <!-- include CSRF token -->
+      {{ form.csrf_token }}
+      <!-- use Bootstrap grid system to layout form fields -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          {{ form.destination.label }}
+          {{ form.destination }}
+        </div>
+        <div class="form-group col-md-6">
+          {{ form.duration.label }}
+          {{ form.duration }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          {{ form.budget.label }}
+          {{ form.budget }}
+        </div>
+        <div class="form-group col-md-6">
+          {{ form.accommodation.label }}
+          {{ form.accommodation }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          {{ form.activities.label }}
+          {{ form.activities }}
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Generate Itinerary</button>
+    </form>
+    {% if itinerary %}
+    <div class="itinerary">{{ itinerary }}</div>
+    {% endif %}
+
+    <!-- include Bootstrap JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+</html>
