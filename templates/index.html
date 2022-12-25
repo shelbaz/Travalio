@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
   <body>
-    <h1>Itinerary Planner</h1>
-    <p>Use this form to generate a personalized itinerary for your trip.</p>
+    <div class="container-fluid text-center mb-4">
+      <h1>Itinerary Planner</h1>
+      <p>Use this form to generate a personalized itinerary for your trip.</p>
+    </div>
     <form action="" method="post" class="container mt-5">
       <!-- include CSRF token -->
       {{ form.csrf_token }}
@@ -44,7 +46,7 @@
        <p>{{ message }}</p>
  
     {% if itinerary %}
-    <div class="itinerary">{{ itinerary }}</div>
+    <div class="form-group col-12 col-md-6"><pre>{{ itinerary }}</pre></div>
     {% endif %}
  </body>  
     <!-- include Bootstrap JavaScript -->

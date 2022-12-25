@@ -4,6 +4,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, SelectField, SubmitField
 from wtforms import validators
 import openai
+import os
 
 app = Flask(__name__)
 app.template_folder = 'templates'
@@ -97,7 +98,7 @@ def itinerary():
 # Generate the itinerary using the chat GPT API
 def generate_itinerary(destination, duration, budget, accommodation,
                        activities):
-  openai.api_key = "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"
+  openai.api_key = os.environ['api_key']
   prompt = f"I'm planning a trip and would like to get a detailed itinerary that breaks down the locations I will visit, the number of days I will spend at each location, and the suggested activities to do at each location, including suggestions for food and accommodation. My destination is {destination} and I'll be there for {duration} days. I have a budget of {budget} USD and I'm interested in staying in a {accommodation}. I'd like to do the following activities: {activities}. Can you help me plan the itinerary?"
   model_engine = "text-davinci-003"
   print(prompt)
